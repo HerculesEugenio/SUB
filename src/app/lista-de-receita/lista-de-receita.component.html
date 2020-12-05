@@ -1,0 +1,25 @@
+<style>
+    .card-deck{
+        display: inline-flex;
+        padding: 15px;
+    }
+</style>
+<div class="container">
+    <div class="card-deck" *ngFor='let receita of Receitas'>
+        <div *ngIf='receita.publica === true'>
+            <div style="width: 20rem;">
+                <div class="card" >
+                    <div class="card-body">
+                    <h5 class="card-title">{{receita.titulo}}</h5>
+                    <p class="card-text">{{receita.modo_preparo}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a routerLink='/detalhes/{{receita.id}}' class="btn btn-secondary" href="" role="button">Detalhes &raquo;</a>
+                        <a routerLink='/cadastro' class='btn btn-warning' href="" role="button" (click)='edit(receita)'>Editar</a>
+                        <a class="btn btn-danger" href='' role="button" (click)='excluir(receita)'>Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
